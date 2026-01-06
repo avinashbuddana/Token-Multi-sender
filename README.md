@@ -62,9 +62,30 @@ await batch.batchTransferNative(recipients, amounts, { value: total });
 - Beware block gas limits: very large recipient lists can run out of gas.
 - No state is stored; reentrancy is not a concern here.
 
+## How to use (Frontend Web App)
+
+No private key is required. You will connect your browser wallet (e.g., MetaMask).
+
+1. Navigate to the `frontend` directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+4. Open the link (usually `http://localhost:5173`) in your browser.
+5. Connect your wallet, select your file, and click "Send".
+
 ## BSC Testnet Multisend Script
 
 Use the provided ESM Node.js script to send tokens in batches from a CSV or JSON file. The script auto-estimates a safe recipients-per-transaction chunk size based on current block gas limits.
+
+**IMPORTANT:** This script requires your wallet's `PRIVATE_KEY` to be set in the `.env` file to sign transactions automatically. If you do not want to expose your private key, use the [Frontend Web App](#how-to-use-frontend-web-app) instead.
 
 ### Prerequisites
 
